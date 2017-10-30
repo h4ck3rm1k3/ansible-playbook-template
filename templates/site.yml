@@ -1,0 +1,4 @@
+-- # site.yml
+{% for aspect_name in aspect_names %}
+ - include: {{aspect_name}}.yml
+{% endfor %}
