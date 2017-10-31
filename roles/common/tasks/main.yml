@@ -1,0 +1,24 @@
+# role main
+-
+  name : playbookdir
+  file:
+    path: /tmp/playbook
+    state: directory
+    mode: 0755
+    
+-
+  name : site.yml
+  template:
+      src=site.yml
+      dest=/tmp/playbook/site.yml
+
+-
+  name : aspect.yml
+  template:
+      src=aspect.yml
+      dest=/tmp/playbook/{{item}}.yml
+  with_items: "{{aspects}}"
+
+  
+#attributes,backup,content,delimiter,dest,directory_mode,follow,force,group,mode,original_basename,
+#owner,regexp,remote_src,selevel,serole,setype,seuser,src,unsafe_writes,validate

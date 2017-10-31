@@ -1,0 +1,3 @@
+-- # site.yml
+ - include: aspect2.yml
+ - include: aspect1.yml

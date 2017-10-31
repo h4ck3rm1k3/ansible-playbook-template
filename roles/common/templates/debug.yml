@@ -1,0 +1,6 @@
+{{inventory_hostname}}
+{{ ansible_managed }}
+{{ environment  }}
+{{ group_names }}
+{{ groups }}
+{{ hostvars[inventory_hostname] }}

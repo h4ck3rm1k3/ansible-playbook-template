@@ -1,0 +1,45 @@
+aspect_names :
+  - 'foo'
+  
+roles :  
+  'common' :
+    
+  'webtier' : 
+
+
+aspects : 
+    'aspect1' : 
+        'hosts' : 'all'
+        'roles' :
+          - 'common'
+          - 'webtier'
+        
+    'aspect2' : 
+        'hosts' : 'one'
+        'roles' : 
+          - 'uncommon'
+
+        
+hosts : 
+    'all' : 
+        'hosts' : 
+            'host1' :
+            'host2' : 
+            
+        'vars' :  
+            'dhcp_server' :  'foo'
+
+
+
+group_vars : 
+    'all' : ""
+
+host_vars : 
+    'host1' : 
+      ansible_connection : 'local'
+      ansible_host : 'localhost'
+
+    'host2' : 
+      ansible_connection : 'local'
+      ansible_host : 'localhost'
+    

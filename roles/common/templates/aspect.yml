@@ -1,0 +1,8 @@
+---
+# item "{{item}}"
+- hosts: {{ aspects[item].hosts }}
+  roles:
+{% for role_name in aspects[item].roles %}
+   - {{role_name}}
+{% endfor %}
+

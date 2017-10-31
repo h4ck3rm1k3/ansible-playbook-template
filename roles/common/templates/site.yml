@@ -1,0 +1,4 @@
+-- # site.yml
+{% for aspect_name in aspects %}
+ - include: "{{aspect_name}}.yml"
+{% endfor %}
