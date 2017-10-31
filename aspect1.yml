@@ -2,4 +2,4 @@
 - hosts: all
   roles:
    - common
-   - webtier
+   - { role : "role_task", role_name: 'common', template_name : 'main', template_file : 'foo.yml', task_name : "main", task_file: "task.yml" }

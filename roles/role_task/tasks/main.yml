@@ -1,0 +1,31 @@
+#
+- name : debug
+  debug :
+    msg : "task  role_name:{{role_name}} template: {{template_name}} template file: {{template_file}}"
+
+-
+  name : role_templatesdir
+  file:
+    path: /tmp/playbook/roles/{{role_name}}/templates
+    state: directory
+    mode: 0755
+-
+  name : role_tasksdir
+  file:
+    path: /tmp/playbook/roles/{{role_name}}/tasks
+    state: directory
+    mode: 0755
+
+-
+  name : some_template.yml
+  template:
+      src="{{template_file}}"
+      dest="/tmp/playbook/roles/{{role_name}}/templates/{{template_name}}.yml"
+
+-
+  name : some_task.yml
+  template:
+      src="{{task_file}}"
+      dest="/tmp/playbook/roles/{{role_name}}/tasks/{{task_name}}.yml"
+
+

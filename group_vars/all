@@ -3,7 +3,11 @@ aspect_names :
   
 roles :  
   'common' :
-    
+    tasks:
+      main:
+        src: main_role.yml
+        vars:
+          a : "b"
   'webtier' : 
 
 

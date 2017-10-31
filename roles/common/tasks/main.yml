@@ -19,6 +19,33 @@
       dest=/tmp/playbook/{{item}}.yml
   with_items: "{{aspects}}"
 
-  
-#attributes,backup,content,delimiter,dest,directory_mode,follow,force,group,mode,original_basename,
-#owner,regexp,remote_src,selevel,serole,setype,seuser,src,unsafe_writes,validate
+-
+  name : aspect.yml
+  template:
+      src=aspect.yml
+      dest=/tmp/playbook/{{item}}.yml
+  with_items: "{{aspects}}"
+
+-
+  name : roledir
+  file:
+    path: /tmp/playbook/roles/{{item}}
+    state: directory
+    mode: 0755
+  with_items: "{{roles}}"
+
+-
+  name : role_tasksdir
+  file:
+    path: /tmp/playbook/roles/{{item}}/tasks
+    state: directory
+    mode: 0755
+  with_items: "{{roles}}"
+
+-
+  name : role_templatesdir
+  file:
+    path: /tmp/playbook/roles/{{item}}/templates
+    state: directory
+    mode: 0755
+  with_items: "{{roles}}"
