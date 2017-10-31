@@ -26,26 +26,44 @@
       dest=/tmp/playbook/{{item}}.yml
   with_items: "{{aspects}}"
 
--
-  name : roledir
-  file:
-    path: /tmp/playbook/roles/{{item}}
-    state: directory
-    mode: 0755
-  with_items: "{{roles}}"
+# -
+#   name : roledir
+#   file:
+#     path: /tmp/playbook/roles/{{item}}
+#     state: directory
+#     mode: 0755
+#   with_items: "{{roles}}"
+
+# -
+#   name : role_tasksdir
+#   file:
+#     path: /tmp/playbook/roles/{{item}}/tasks
+#     state: directory
+#     mode: 0755
+#   with_items: "{{roles}}"
+
+# -
+#   name : role_templatesdir
+#   file:
+#     path: /tmp/playbook/roles/{{item}}/templates
+#     state: directory
+#     mode: 0755
+#   with_items: "{{roles}}"
 
 -
-  name : role_tasksdir
-  file:
-    path: /tmp/playbook/roles/{{item}}/tasks
-    state: directory
-    mode: 0755
-  with_items: "{{roles}}"
+  name : aspect.yml
+  template:
+      src=aspect.yml
+      dest=/tmp/playbook/{{item}}.yml
+  with_items: "{{aspects}}"
 
 -
-  name : role_templatesdir
-  file:
-    path: /tmp/playbook/roles/{{item}}/templates
-    state: directory
-    mode: 0755
-  with_items: "{{roles}}"
+  name : foo
+  include_role:
+    name: "role_task"
+  vars :
+    new_role_name: 'common4'
+    template_name : 'main4'
+    template_file : 'foo.yml'
+    task_name : "main4"
+    task_file: "task.yml"

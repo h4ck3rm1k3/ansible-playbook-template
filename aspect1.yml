@@ -2,4 +2,17 @@
 - hosts: all
   roles:
    - common
-   - { role : "role_task", role_name: 'common', template_name : 'main', template_file : 'foo.yml', task_name : "main", task_file: "task.yml" }
+  #  - { role : "role_task", role_name: 'common', template_name : 'main', template_file : 'foo.yml', task_name : "main", task_file: "task.yml" }
+
+  # tasks:
+  #   -
+  #     name : foo
+  #     include_role:
+  #       name: "role_task"
+  #     vars :
+  #       role_name: 'common2'
+  #       template_name : 'main2'
+  #       template_file : 'foo.yml'
+  #       task_name : "main2"
+  #       task_file: "task.yml"
+   
